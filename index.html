@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Web App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" 
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="output.css">
+    <link rel="icon" href="src/favicon.png">
+</head>
+<body>
+    <div class="navbar max-w-full min-h-24">
+        <div class="flex justify-between p-4">
+            <a href="index.html" class="font-1 text-3xl font-semibold" id="name-web">UnderWeather</a>
+            <nav class="flex gap-6 font-2 text-lg">
+                <div class="dropdown relative inline-block group">
+                    <button class="hover:underline h-6" id="city-dropdown">City</button>
+                    <div id="dropdown-content" class="hidden absolute group-hover:block bg-white border border-blue-400 w-40">
+                        <!-- <a href="#" class="city-content block hover:bg-blue-200 px-4 py-2 text-black"></a>
+                        <a href="#" class="city-content block hover:bg-blue-200 px-4 py-2 text-black"></a>
+                        <a href="#" class="city-content block hover:bg-blue-200 px-4 py-2 text-black"></a> -->
+                    </div>
+                </div>
+                <!-- <a href="#"></a> -->
+                <a href="about.html" class="hover:underline" id="about">About</a>
+                <a href="contact-us.html" class="hover:underline" id="contact">Contact Us</a>
+            </nav>
+            <a href="" class="p-2 bg-blue-500 rounded-xl text-white font-2 text-m hover:bg-blue-700">Learn More</a>
+        </div>
+    </div>
+
+    <header class="titlepage">
+        <h1 class="mt-8 font-3 font-bold text-7xl text-center">Know The Weather, Now You Go</h1>
+        <div class="max-h-screen">
+            <div>
+                <img src="Hero image.png" class="mx-auto h-auto mt-14 bg-center">
+            </div>
+            <!-- <div class="h-40 w-4xl mx-auto bg-blue-500 rounded-2xl"></div> -->
+        </div>
+    </header>
+
+    <div class="search-area min-h-42">
+        <div class="flex justify-center mt-22">
+            <form class="relative w-2xl" id="search-form">
+                <input type="text" placeholder="Masukkan nama kota..." required id="city-input" class="w-2xl bg-linear-to-r from-sky-500 to-indigo-500 p-6 pr-12 rounded-2xl text-white focus:outline-none">
+                <button type="submit">
+                    <i id="search-btn" class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 -translate-y-1/2 text-white mr-2 hover:cursor-pointer hover:scale-125 transition duration-200 ease-in-out"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Lanjut cari gambar mockup laptop dan cuaca, buat form search, dan baru buat backend -->
+     <!-- Buat weather page and error page -->
+    <script src="utils/dom-landing.js"></script>
+</body>
+</html>
