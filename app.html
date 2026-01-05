@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Apps</title>
+    <link rel="icon" href="/weather-web-app/src/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="output.css">
+</head>
+<script type="module" src="utils/dom-apps.js" defer></script>
+<body>
+
+    <a href="app.html" class="my-9 font-[Smooch_Sans] text-3xl font-semibold text-center flex justify-center" id="name">UnderWeather</a>
+    <h2 id="today" class="text-center text-2xl"></h2>
+    <div class="max-h-screen">
+        <div id="wrapper-cards" class="mt-10 mb-8 grid grid-cols-2 gap-4 place-items-center">
+            <div class="relative w-xl hover:scale-105 transition delay-0 duration-300 ease-in-out">
+                <div id="city-weather" class="bg-linear-to-b w-2xl from-sky-600 to-indigo-600 rounded-2xl h-60 text-white text-center shadow-lg shadow-black flex justify-center items-center flex-col font-[Quicksand] font-semibold text-xl">
+                    <h2 id="weather"></h2>
+                    <p id="weather-desc"></p>
+                </div>
+                <img id="weather-icon" src="" alt class="absolute bottom-20 left-10 w-22 h-22 drop-shadow-2xl">
+            </div>
+            <div class="relative w-xl hover:scale-105 transition delay-0 duration-300 ease-in-out">
+                <div id="wind" class="bg-linear-to-b w-xl from-sky-600 to-indigo-600 rounded-2xl h-60 text-white text-center shadow-lg shadow-black flex flex-col justify-center items-center font-[Quicksand] font-semibold text-lg">
+                    <p class="wind-data" id="speed"></p>
+                    <p class="wind-data" id="degrees"></p>
+                    <p class="wind-data" id="gust"></p>
+                </div>
+                <img id="wind-icon" src="src/wind.png" alt="wind icon" class="absolute top-20 left-10 w-20 h-20">
+            </div>
+            <div class="relative w-xl hover:scale-105 transition delay-0 duration-300 ease-in-out">
+                <div class="bg-linear-to-b w-2xl from-sky-600 to-indigo-600 rounded-2xl h-60 text-white text-center shadow-lg shadow-black flex justify-center items-center flex-col font-[Quicksand] font-semibold text-lg">
+                    <div id="temp-average"></div>
+                    <div id="temp-min"></div>
+                    <div id="temp-max"></div>
+                </div>
+                <img src="src/temperature.png" alt="temp-icons" class="absolute w-20 h-20 top-20 left-10">
+            </div>
+            <div class="relative w-xl hover:scale-105 transition delay-0 duration-300 ease-in-out">
+                <div class="bg-linear-to-b w-xl from-sky-600 to-indigo-600 rounded-2xl h-60 text-white text-center shadow-lg shadow-black flex justify-center items-center font-[Quicksand] font-semibold text-xl">
+                    <div id="sea-level"></div>
+                </div>
+                <img src="src/sea.png" alt="" class="absolute bottom-18 left-10 w-20 h-20">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
