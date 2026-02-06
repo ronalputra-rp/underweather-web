@@ -10,43 +10,123 @@
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="output.css">
 </head>
 <script type="module" src="utils/dom-apps.js" defer></script>
 <body>
 
-    <a href="app.html" class="my-9 font-[Smooch_Sans] text-3xl font-semibold text-center flex justify-center" id="name">UnderWeather</a>
-    <h2 id="today" class="text-center text-2xl"></h2>
-    <div class="max-h-screen">
-        <div id="wrapper-cards" class="mt-10 mb-8 grid grid-cols-2 gap-4 place-items-center">
-            <div class="relative w-xl hover:scale-105 transition delay-0 duration-300 ease-in-out">
-                <div id="city-weather" class="bg-linear-to-b w-2xl from-sky-600 to-indigo-600 rounded-2xl h-60 text-white text-center shadow-lg shadow-black flex justify-center items-center flex-col font-[Quicksand] font-semibold text-xl">
-                    <h2 id="weather"></h2>
-                    <p id="weather-desc"></p>
+    <!-- Navbar -->
+    <nav class="mt-10 flex justify-center gap-8 text-lg font-2 text-white w-sm max-w-2xl mx-auto font-semibold bg-blue-500 p-4 rounded-xl animate-fade-y-1">
+        <button type="button" id="today-link" class="hover:underline">Today</button>
+        <button type="button" id="hours-link" class="hover:underline">Hours</button>
+        <button type="button" id="daily-link" class="hover:underline">Daily</a>
+    </nav>
+
+    <!-- Today Forecast -->
+    <div class="h-full w-full">
+        <div id="wrapper-cards" class="mt-10 mb-8">
+            <div id="weather-on-clock" class="p-6 ml-5 mr-5 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 justify-center animate-fade-y-3">
+                <div id="weather-on-data" class="p-6 mb-6 bg-linear-to-b w-full max-w-2xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl">
+                    <div id="on-fly" class="flex flex-col w-full max-w-2xl gap-3 items-center">
+                        <img src="" id="img-on-fly" alt="" class="w-20 h-20 drop-shadow-2xl">
+                        <p id="temp-on" class="text-lg sm:text-xl"></p>
+                        <p id="weather-on" class="text-2xl sm:text-4xl;"></p>
+                        <p id="desc-on" class="text-sm sm:text-lg"></p>
+                        <p id="date-time-on" class="text-lg"></p>
+                        <p id="city-on" class="text-lg font-bold"></p>
+                    </div>
                 </div>
-                <img id="weather-icon" src="" alt class="absolute bottom-20 left-10 w-22 h-22 drop-shadow-2xl">
+
+                <div id="wind-data-on" class="p-6 mb-6 bg-linear-to-b w-full max-w-2xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl">
+                    <div id="wind-on" class="flex flex-col w-full max-w-2xl items-center gap-5">
+                        <img src="src/wind.png" alt="" class="w-20 h-20 drop-shadow-2xl">
+                        <p class="text-2xl font-semibold">Wind Statistics</p>
+                        <p id="wind-speed" class="text-lg sm:text-xl"></p>
+                        <p id="wind-speed-desc" class="text-sm sm:text-lg"></p>
+                        <p id="wind-gust" class="text-lg"></p>
+                        <p id="wind-degrees" class="text-lg"></p>
+                    </div>
+                </div>
             </div>
-            <div class="relative w-xl hover:scale-105 transition delay-0 duration-300 ease-in-out">
-                <div id="wind" class="bg-linear-to-b w-xl from-sky-600 to-indigo-600 rounded-2xl h-60 text-white text-center shadow-lg shadow-black flex flex-col justify-center items-center font-[Quicksand] font-semibold text-lg">
-                    <p class="wind-data" id="speed"></p>
-                    <p class="wind-data" id="degrees"></p>
-                    <p class="wind-data" id="gust"></p>
+
+        <!-- Hours Forecast -->
+            <div id="wrapper-on-hours" class="hidden">
+                <div id="forecast-today" class="p-6 ml-5 mr-5 grid grid-cols-1 sm:grid-cols-2 items-center gap-4 animate-fade-y-3">
+                    <div class="p-6 mb-6 bg-linear-to-b border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold " id="data-forecast-today-1">
+                        <div id="forecast-today-1" class="w-full max-w-2xl">
+                            <div id="weather-1" class="flex flex-col gap-2 items-center w-full max-w-2xl flex-wrap">
+                                <img src="" id="img-1" class="w-20 h-20 drop-shadow-2xl">
+                                <p id="temp-1" class="text-lg sm:text-xl"></p>
+                                <p id="today-1" class="text-2xl sm:text-4xl"></p>
+                                <p id="desc-1" class="text-sm"></p>
+                                <p id="date-time-1" class="text-lg"></p>
+                                <p id="city-hours-1" class="text-sm font-bold"></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <img id="wind-icon" src="src/wind.png" alt="wind icon" class="absolute top-20 left-10 w-20 h-20">
             </div>
-            <div class="relative w-xl hover:scale-105 transition delay-0 duration-300 ease-in-out">
-                <div class="bg-linear-to-b w-2xl from-sky-600 to-indigo-600 rounded-2xl h-60 text-white text-center shadow-lg shadow-black flex justify-center items-center flex-col font-[Quicksand] font-semibold text-lg">
-                    <div id="temp-average"></div>
-                    <div id="temp-min"></div>
-                    <div id="temp-max"></div>
+            
+    <!-- Daily forecast -->
+            <div id="forecast-daily" class="hidden animate-fade-y-3">
+                <div class="p-6 ml-5 mr-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                    <div id="data-forecast-daily-1" class="p-6 mb-6 bg-linear-to-b w-full max-w-2xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl">
+                            <div id="daily-sect-1" class="flex flex-col gap-2 items-center flex-wrap">
+                                <img src="" alt="" id="img-daily-1" class="w-20 h-20 drop-shadow-2xl">
+                                <p id="temp-daily-1" class="text-lg sm:text-xl"></p>
+                                <p id="weather-daily-1" class="text-2xl sm:text-4xl"></p>
+                                <p id="desc-daily-1" class="text-sm"></p>
+                                <p id="date-daily-1" class="text-xl"></p>
+                                <p id="city-daily-1" class="text-lg font-bold"></p>
+                            </div>
+                        </div>
+
+                        <div id="data-forecast-daily-2" class="p-6 mb-6 bg-linear-to-b w-full max-w-2xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl">
+                            <div id="daily-sect-2" class="flex flex-col gap-2 items-center flex-wrap">
+                                <img src="" alt="" id="img-daily-2" class="w-20 h-20 drop-shadow-2xl">
+                                <p id="temp-daily-2" class="text-lg sm:text-xl"></p>
+                                <p id="weather-daily-2" class="text-2xl sm:text-4xl"></p>
+                                <p id="desc-daily-2" class="text-sm"></p>
+                                <p id="date-daily-2" class="text-xl"></p>
+                                <p id="city-daily-2" class="text-lg font-bold"></p>
+                            </div>
+                        </div>
+                        
+                        <div id="data-forecast-daily-3" class="p-6 mb-6 bg-linear-to-b w-full max-w-2xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl">
+                            <div id="daily-sect-3" class="flex flex-col gap-2 items-center flex-wrap">
+                                <img src="" alt="" id="img-daily-3" class="w-20 h-20 drop-shadow-2xl">
+                                <p id="temp-daily-3" class="text-lg sm:text-xl"></p>
+                                <p id="weather-daily-3" class="text-2xl sm:text-4xl"></p>
+                                <p id="desc-daily-3" class="text-sm"></p>
+                                <p id="date-daily-3" class="text-xl"></p>
+                                <p id="city-daily-3" class="text-lg font-bold"></p>
+                            </div>
+                        </div>
+
+                        <div id="data-forecast-daily-4" class="p-6 mb-6 bg-linear-to-b w-full max-w-2xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl">
+                            <div id="daily-sect-4" class="flex flex-col gap-2 items-center flex-wrap">
+                                <img src="" alt="" id="img-daily-4" class="w-20 h-20 drop-shadow-2xl">
+                                <p id="temp-daily-4" class="text-lg sm:text-xl"></p>
+                                <p id="weather-daily-4" class="text-2xl sm:text-4xlxl"></p>
+                                <p id="desc-daily-4" class="text-sm"></p>
+                                <p id="date-daily-4" class="text-xl"></p>
+                                <p id="city-daily-4" class="text-lg font-bold"></p>
+                            </div>
+                        </div>
+
+                        <div id="data-forecast-daily-5" class="p-6 mb-6 bg-linear-to-b w-full max-w-2xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl">
+                            <div id="daily-sect-5" class="flex flex-col gap-2 items-center flex-wrap">
+                                <img src="" alt="" id="img-daily-5" class="w-20 h-20 drop-shadow-2xl">
+                                <p id="temp-daily-5" class="text-lg sm:text-xl"></p>
+                                <p id="weather-daily-5" class="text-2xl sm:text-4xl"></p>
+                                <p id="desc-daily-5" class="text-sm"></p>
+                                <p id="date-daily-5" class="text-xl"></p>
+                                <p id="city-daily-5" class="text-lg font-bold"></p>
+                            </div>
+                        </div>
                 </div>
-                <img src="src/temperature.png" alt="temp-icons" class="absolute w-20 h-20 top-20 left-10">
-            </div>
-            <div class="relative w-xl hover:scale-105 transition delay-0 duration-300 ease-in-out">
-                <div class="bg-linear-to-b w-xl from-sky-600 to-indigo-600 rounded-2xl h-60 text-white text-center shadow-lg shadow-black flex justify-center items-center font-[Quicksand] font-semibold text-xl">
-                    <div id="sea-level"></div>
-                </div>
-                <img src="src/sea.png" alt="" class="absolute bottom-18 left-10 w-20 h-20">
             </div>
         </div>
     </div>
