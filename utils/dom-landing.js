@@ -2,6 +2,10 @@ const form = document.getElementById("search-form");
 const cityInput = document.getElementById("city-input");
 const dropdown = document.getElementById("dropdown-content");
 const dropdownContent = document.getElementsByClassName("city-content");
+const navigation = document.getElementById("navigation");
+const header = document.getElementById("header");
+const searchIcon = document.getElementById("search-icon");
+// const nameWeb = document.getElementById("name-web");
 
 
 const listOfCity = ["Ambarawa","Salatiga","Ungaran","Jakarta","Semarang","Solo"];
@@ -43,5 +47,15 @@ for (let i = 0; i < dropdownContent.length; i++) {
         window.location.href = `app.html?city=${encodeURIComponent(capitalizeWords(city))}`;
     });
 }
+
+window.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".pre-animate").forEach(el => {
+        el.classList.remove("pre-animate")
+
+    })
+    navigation.classList.remove("invisible");
+    header.classList.remove("invisible");
+    searchIcon.classList.remove("invisible");
+})
 // console.log(form);
 // console.log(cityInput);
