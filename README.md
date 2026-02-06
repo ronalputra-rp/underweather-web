@@ -6,7 +6,7 @@ A responsive and modern weather web application built with vanilla JavaScript, T
     🔍 Search weather by city name
     🌡️ Real-time temperature, humidity, and wind speed
     ☀️ Dynamic weather condition icons
-    🎨 Clean UI with Tailwind CSS
+    🎨 Clean and Responsive UI with Tailwind CSS
     ⚡ Fast and lightweight
 
 ## 🛠️ Tech Stack
@@ -42,7 +42,9 @@ To use your own API key:
     ```
 
 ## 📸 Screenshots
-<img width="1365" height="644" alt="image" src="https://github.com/user-attachments/assets/3bbc0beb-d11e-44fa-ab21-45754d90fa6a" />
+### Landing Page 
+![Landing Page](project-screen/Landing.png)
+![Weather Page](project-screen/Apps.png)
 
 📝 Purpose & Learning Journey
 This project is a critical step in my learning journey, specifically dedicated to deeply understanding:
