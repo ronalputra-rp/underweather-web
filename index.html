@@ -12,53 +12,56 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
             integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
             crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .pre-animate{
+            opacity:0;
+            transform: translateY(-30px);
+        }
+    </style>
     <link rel="stylesheet" href="output.css">
     <link rel="icon" href="src/favicon.png">
 </head>
 <body>
-    <div class="navbar max-w-full min-h-24">
-        <div class="flex justify-between p-4">
-            <a href="index.html" class="font-1 text-3xl font-semibold" id="name-web">UnderWeather</a>
-            <nav class="flex gap-6 font-2 text-lg">
-                <div class="dropdown relative inline-block group">
-                    <button class="hover:underline h-6" id="city-dropdown">City</button>
-                    <div id="dropdown-content" class="hidden absolute group-hover:block bg-white border border-blue-400 w-40">
+    <div id="navigation" class="navbar w-full min-h-24 invisible">
+        <div class="flex justify-between p-4" style="--delay: 100ms">
+            <a href="index.html" class="font-1 pre-animate animate-fade-y-1 stagger-delay text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold" id="name-web">UnderWeather</a>
+            <nav class="flex gap-6 font-2">
+                <div class="dropdown relative group ">
+                    <button class="hover:underline pre-animate animate-fade-y-1 text-sm sm:text-lg stagger-delay" id="city-dropdown">City</button>
+                    <div id="dropdown-content" class="absolute bg-white border border-blue-400 w-40 -translate-y-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-out pointer-events-none group-hover:pointer-events-auto">
                         <!-- <a href="#" class="city-content block hover:bg-blue-200 px-4 py-2 text-black"></a>
                         <a href="#" class="city-content block hover:bg-blue-200 px-4 py-2 text-black"></a>
                         <a href="#" class="city-content block hover:bg-blue-200 px-4 py-2 text-black"></a> -->
                     </div>
                 </div>
                 <!-- <a href="#"></a> -->
-                <a href="about.html" class="hover:underline" id="about">About</a>
-                <a href="contact-us.html" class="hover:underline" id="contact">Contact Us</a>
+                <a href="about.html" class="hover:underline pre-animate animate-fade-y-1 text-sm sm:text-lg stagger-delay" id="about">About</a>
+                <a href="contact-us.html" class="hover:underline pre-animate animate-fade-y-1 text-sm sm:text-lg stagger-delay" id="contact">Contact Us</a>
             </nav>
-            <a href="" class="p-2 bg-blue-500 rounded-xl text-white font-2 text-m hover:bg-blue-700">Learn More</a>
+            <a href="" class="p-2 max-w-sm bg-blue-500 rounded-xl text-white font-2 text-sm hover:bg-blue-700 pre-animate animate-fade-y-1 stagger-delay">Learn More</a>
         </div>
     </div>
 
-    <header class="titlepage">
-        <h1 class="mt-8 font-3 font-bold text-7xl text-center">Know The Weather, Now You Go</h1>
-        <div class="max-h-screen">
+    <header id="header" class="titlepage pre-animate animate-fade-y-2 stagger-delay invisible" style="--delay: 300ms">
+        <h1 class="mt-8 font-3 font-bold text-3xl text-center sm:text-4xl md:text-5xl ">Know The Weather, Now You Go</h1>
+        <div class="w-full px-4">
             <div>
-                <img src="Hero image.png" class="mx-auto h-auto mt-14 bg-center">
+                <img src="Hero image.png" class="mx-auto w-full max-w-2xl h-auto mt-14 bg-center">
             </div>
             <!-- <div class="h-40 w-4xl mx-auto bg-blue-500 rounded-2xl"></div> -->
         </div>
     </header>
 
-    <div class="search-area min-h-42">
-        <div class="flex justify-center mt-22">
-            <form class="relative w-2xl" id="search-form">
-                <input type="text" placeholder="Masukkan nama kota..." required id="city-input" class="w-2xl bg-linear-to-r from-sky-500 to-indigo-500 p-6 pr-12 rounded-2xl text-white focus:outline-none">
+    <div id="search-icon" class="search-area pre-animate animate-fade-y-2 invisible">
+        <div class="flex justify-center items-center mt-18 px-4 py-8">
+            <form class="relative w-full max-w-md" id="search-form">
+                <input type="text" placeholder="Masukkan nama kota..." required id="city-input" class="w-full max-w-md text-center sm:text-left md:text-left bg-linear-to-r from-sky-500 to-indigo-500 p-4 pr-12 rounded-2xl text-white focus:outline-none">
                 <button type="submit">
                     <i id="search-btn" class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 -translate-y-1/2 text-white mr-2 hover:cursor-pointer hover:scale-125 transition duration-200 ease-in-out"></i>
                 </button>
             </form>
         </div>
     </div>
-
-    <!-- Lanjut cari gambar mockup laptop dan cuaca, buat form search, dan baru buat backend -->
-     <!-- Buat weather page and error page -->
     <script src="utils/dom-landing.js"></script>
 </body>
 </html>
