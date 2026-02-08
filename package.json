@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build:css": "tailwindcss -i input.css -o ./output.css && ls -la"
+    "build:css": "tailwindcss -i ./input.css -o ./output.css"
   },
   "keywords": [],
   "author": "",
@@ -11,6 +11,8 @@
   "dependencies": {
     "tailwindcss": "^4.1.18"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18"
+  },
   "description": ""
 }
