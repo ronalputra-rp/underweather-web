@@ -28,6 +28,7 @@ const wrapperOnHours = document.getElementById("wrapper-on-hours");
 const hoursWeather = document.getElementById("forecast-today");
 const dailyWeather = document.getElementById("forecast-daily");
 const forecastToday1 = document.getElementById("forecast-today-1");
+const dataForecastToday1 = document.getElementById("data-forecast-today-1");
 const today1 = document.getElementById("today-1");
 const section3 = document.getElementById("data-forecast-3");
 const temp1 = document.getElementById("temp-1");
@@ -156,18 +157,19 @@ function renderWeather(data) {
 
 
 function renderForecastWeather(todayForecast,dailyForecast) {
-    const cityHours = todayForecast[0].city;
-    const iconSrc1 = weatherIconMap[todayForecast[0].weather.main] ?? "No";
-    imgToday1.src = `src/${iconSrc1}`;
-    temp1.textContent = `${todayForecast[0].temp.temp}°C / ${todayForecast[0].temp.minTemp}°C`;
-    today1.textContent = todayForecast[0].weather.main;
-    const descContent1 = descWeather[todayForecast[0].weather.main] ?? "No";
-    desc1.textContent = descContent1;
-    time1.textContent = `${todayForecast[0].dt}`
-    cityHours1.textContent = `- ${cityHours} -`
-    
-
+    if (todayForecast[0]) {
+        const cityHours = todayForecast[0].city;
+        const iconSrc1 = weatherIconMap[todayForecast[0].weather.main] ?? "No";
+        imgToday1.src = `src/${iconSrc1}`;
+        temp1.textContent = `${todayForecast[0].temp.temp}°C / ${todayForecast[0].temp.minTemp}°C`;
+        today1.textContent = todayForecast[0].weather.main;
+        const descContent1 = descWeather[todayForecast[0].weather.main] ?? "No";
+        desc1.textContent = descContent1;
+        time1.textContent = `${todayForecast[0].dt}`
+        cityHours1.textContent = `- ${cityHours} -`
+    }
     if (todayForecast[1]) {
+        const cityHours = todayForecast[0].city;
         const hours2 = document.createElement("div");
         hours2.className = "p-6 mb-6 bg-linear-to-b min-w-xl max-w-3xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl";
         hoursWeather.appendChild(hours2);
@@ -211,6 +213,7 @@ function renderForecastWeather(todayForecast,dailyForecast) {
         
     }
     if (todayForecast[2]) {
+        const cityHours = todayForecast[0].city;
         const hours3 = document.createElement("div");
         hours3.className = "p-6 mb-6 bg-linear-to-b min-w-xl max-w-3xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl";
         hoursWeather.appendChild(hours3);
@@ -251,6 +254,7 @@ function renderForecastWeather(todayForecast,dailyForecast) {
     }
 
     if (todayForecast[3]) {
+        const cityHours = todayForecast[0].city;
         const hours4 = document.createElement("div");
         hours4.className = "p-6 mb-6 bg-linear-to-b min-w-xl max-w-3xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl";
         hoursWeather.appendChild(hours4);
@@ -289,24 +293,25 @@ function renderForecastWeather(todayForecast,dailyForecast) {
         newDiv.appendChild(cityHours4);
     }
 
-    if (!todayForecast[0] && !todayForecast[1] && todayForecast[2] && todayForecast[3]) {
+    if (!todayForecast[0] && !todayForecast[1] && !todayForecast[2] && !todayForecast[3]) {
         const resetSection = document.createElement("div");
         resetSection.id = "reset-section";
-        resetSection.className = "p-6 mb-6 bg-linear-to-b border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold";
-        hoursWeather.appendChild(resetSection);
+        resetSection.className = "mx-auto w-sm sm:w-lg p-6 mb-6 bg-linear-to-b border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold";
+        wrapperOnHours.appendChild(resetSection);
         const resetData = document.createElement("div");
         resetData.id = "reset-data";
         resetData.className = "w-full max-w-2xl";
         resetSection.appendChild(resetData)
         const plainContent = document.createElement("div");
         plainContent.id = "plain-content";
-        plainContent.className = "flex flex-col gap-2 items-center w-full max-w-2xl flex-wrap animate-spin";
+        plainContent.className = "w-full max-w-2xl";
         resetData.appendChild(plainContent);
         const resetMessage = document.createElement("p");
         resetMessage.id = "reset-message";
         resetMessage.className = "text-lg sm:text-xl";
         resetMessage.textContent = "Data is being reset. Please wait a moment."
         plainContent.appendChild(resetMessage);
+        dataForecastToday1.remove();
     };
 
     const iconDaily1 = weatherIconMap[dailyForecast[0].weather.main] ?? "No";
