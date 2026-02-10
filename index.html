@@ -26,14 +26,14 @@
         <div class="flex justify-between p-4 flex-wrap items-center" style="--delay: 100ms">
             <a href="index.html" class="font-1 pre-animate animate-fade-y-1 stagger-delay text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold" id="name-web">UnderWeather</a>
             <nav class="flex gap-4 sm:gap-6 font-2 items-center">
-                <div class="dropdown relative group">
-                    <button class="hover:underline pre-animate animate-fade-y-1 text-sm sm:text-lg stagger-delay" id="city-dropdown">City</button>
+                <div id="dropdown-container" class="dropdown relative group">
+                    <button class="sm:hover:underline pre-animate animate-fade-y-1 text-sm sm:text-lg stagger-delay" id="city-dropdown">City</button>
                     <div id="dropdown-content" class="absolute bg-white border border-blue-400 w-40 -translate-y-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-out pointer-events-none group-hover:pointer-events-auto">
                     </div>
                 </div>
                 <a href="contact-us.html" class="hover:underline pre-animate animate-fade-y-1 text-sm sm:text-lg stagger-delay" id="contact">Contact Me</a>
             </nav>
-            <a href="" class="p-2 max-w-sm bg-blue-500 rounded-xl text-white font-2 text-sm hover:bg-blue-700 pre-animate animate-fade-y-1 stagger-delay">Learn More</a>
+            <a href="" class="p-1.5 max-w-sm bg-blue-500 rounded-xl text-white font-2 text-sm hover:bg-blue-700 pre-animate animate-fade-y-1 stagger-delay">Learn More</a>
         </div>
     </div>
 
@@ -52,7 +52,7 @@
             <form class="relative w-full max-w-md" id="search-form">
                 <input type="text" placeholder="Masukkan nama kota..." required id="city-input" class="w-full max-w-md text-center sm:text-left md:text-left bg-linear-to-r from-sky-500 to-indigo-500 p-4 pr-12 rounded-2xl text-white focus:outline-none">
                 <button type="submit">
-                    <i id="search-btn" class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 -translate-y-1/2 text-white mr-2 hover:cursor-pointer hover:scale-125 transition duration-200 ease-in-out"></i>
+                    <i id="search-btn" class="fa-solid fa-magnifying-glass absolute right-3 top-1/3 sm:right-3 sm:top-1/2 sm:-translate-y-1/2 text-white mr-2 hover:cursor-pointer hover:scale-125 transition duration-200 ease-in-out"></i>
                 </button>
             </form>
         </div>
