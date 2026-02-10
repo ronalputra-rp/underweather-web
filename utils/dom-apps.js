@@ -296,7 +296,7 @@ function renderForecastWeather(todayForecast,dailyForecast) {
     if (!todayForecast[0] && !todayForecast[1] && !todayForecast[2] && !todayForecast[3]) {
         const resetSection = document.createElement("div");
         resetSection.id = "reset-section";
-        resetSection.className = "mx-auto w-sm sm:w-lg p-6 mb-6 bg-linear-to-b border-2 border-blue-500 animate-fade-y-3 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold";
+        resetSection.className = "mx-auto w-fit sm:w-lg p-4 bg-linear-to-b border-2 border-blue-500 animate-fade-y-3 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold";
         wrapperOnHours.appendChild(resetSection);
         const resetData = document.createElement("div");
         resetData.id = "reset-data";
