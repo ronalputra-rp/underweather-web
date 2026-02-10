@@ -2,6 +2,9 @@
 
 A responsive and modern weather web application built with vanilla JavaScript, Tailwind CSS, and public weather API. This project showcases front-end development skills including API integration, DOM manipulation, and responsive design.
 
+## 🌐 Live Demo
+Check out the live website: https://underweather.netlify.app/
+
 ## ✨ Features
     🔍 Search weather by city name
     🌡️ Real-time temperature, humidity, and wind speed
