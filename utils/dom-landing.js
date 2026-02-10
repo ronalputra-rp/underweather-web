@@ -5,7 +5,11 @@ const dropdownContent = document.getElementsByClassName("city-content");
 const navigation = document.getElementById("navigation");
 const header = document.getElementById("header");
 const searchIcon = document.getElementById("search-icon");
+const dropdownButton = document.getElementById("city-dropdown");
+const dropdownContainer = document.getElementById("dropdown-container");
 // const nameWeb = document.getElementById("name-web");
+
+console.log(dropdownContent);
 
 
 const listOfCity = ["Ambarawa","Salatiga","Ungaran","Jakarta","Semarang","Solo"];
@@ -47,6 +51,24 @@ for (let i = 0; i < dropdownContent.length; i++) {
         window.location.href = `app.html?city=${encodeURIComponent(capitalizeWords(city))}`;
     });
 }
+
+dropdownButton.addEventListener("click",(e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle("opacity-100");
+    dropdown.classList.toggle("translate-y-0");
+    dropdown.classList.toggle("pointer-events-auto");
+
+    dropdown.classList.toggle("opacity-0");
+    dropdown.classList.toggle("-translate-y-2");
+    dropdown.classList.toggle("pointer-events-none");
+})
+
+document.addEventListener("click", (e) => {
+    if (!dropdownContainer.contains(e.target)) {
+        dropdown.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+        dropdown.classList.add("opacity-0", "-translate-y-2", "pointer-events-none");
+    }
+});
 
 window.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".pre-animate").forEach(el => {
