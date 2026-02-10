@@ -27,6 +27,7 @@ const weatherOnClock = document.getElementById("weather-on-clock");
 const wrapperOnHours = document.getElementById("wrapper-on-hours");
 const hoursWeather = document.getElementById("forecast-today");
 const dailyWeather = document.getElementById("forecast-daily");
+const forecastToday1 = document.getElementById("forecast-today-1");
 const today1 = document.getElementById("today-1");
 const section3 = document.getElementById("data-forecast-3");
 const temp1 = document.getElementById("temp-1");
@@ -86,11 +87,11 @@ const date = dateTime.toLocaleDateString('id-ID', {
 
 
 const weatherIconMap = {
-    Thunderstorm:"storm.png",
-    Clear:"sun.png",
-    Clouds:"cloudy.png",
-    Rain:"heavy-rain.png",
-    Snow:"snow.png",
+    Thunderstorm:"storm.webp",
+    Clear:"sun.webp",
+    Clouds:"cloudy.webp",
+    Rain:"heavy-rain.webp",
+    Snow:"snow.webp",
 }
 
 const descWeather = {
@@ -171,29 +172,31 @@ function renderForecastWeather(todayForecast,dailyForecast) {
         hours2.className = "p-6 mb-6 bg-linear-to-b min-w-xl max-w-3xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl";
         hoursWeather.appendChild(hours2);
         const dataForecastToday2 = document.createElement("div");
+        dataForecastToday2.className = "w-full max-w-2xl";
         dataForecastToday2.id = "forecast-today-2";
         hours2.appendChild(dataForecastToday2);
         const weather2 = document.createElement("div");
-        weather2.className = "flex flex-col gap-2 items-center flex-wrap";
+        weather2.className = "flex flex-col gap-2 items-center flex-wrap w-full max-w-2xl";
         dataForecastToday2.appendChild(weather2);
-        
         const iconSrc2 = weatherIconMap[todayForecast[1].weather.main] ?? "No";
         const imgToday2 = document.createElement("img");
         imgToday2.id = "img-2";
         imgToday2.className = "w-20 h-20 drop-shadow-2xl";
         imgToday2.src = `src/${iconSrc2}`;
         const temp2 = document.createElement("p");
+        temp2.className = "text-lg sm:text-xl";
         temp2.id = "temp-2";
         temp2.textContent = `${todayForecast[1].temp.temp}°C / ${todayForecast[1].temp.minTemp}°C`;
         const today2 = document.createElement("p");
         today2.id = "today-2";
-        today2.className = "text-3xl";
+        today2.className = "text-2xl sm:text-4xl";
         today2.textContent = `${todayForecast[1].weather.main}`;
         const desc2 = document.createElement("p");
         const descContent2 = descWeather[todayForecast[1].weather.main] ?? "No";
-        desc2.className = "w-md text-sm";
+        desc2.className = "text-sm";
         desc2.textContent = descContent2;
         const time2 = document.createElement("p");
+        time2.className = "text-lg";
         time2.textContent = `${todayForecast[1].dt}`;
         const cityHours2 = document.createElement("p")
         cityHours2.id = "city-hours-2";
@@ -205,26 +208,35 @@ function renderForecastWeather(todayForecast,dailyForecast) {
         weather2.appendChild(desc2);
         weather2.appendChild(time2);
         weather2.appendChild(cityHours2);
+        
     }
     if (todayForecast[2]) {
+        const hours3 = document.createElement("div");
+        hours3.className = "p-6 mb-6 bg-linear-to-b min-w-xl max-w-3xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl";
+        hoursWeather.appendChild(hours3);
         const dataForecastToday3 = document.createElement("div");
         dataForecastToday3.id = "data-forecast-today-3";
-        dataForecastToday3.className = "flex flex-col gap-2 items-center flex-wrap p-6 mb-6 bg-linear-to-b min-w-xl max-w-5xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl"
-        hoursWeather.appendChild(dataForecastToday3);
+        dataForecastToday3.className = "w-full max-w-2xl"        
+        hours3.appendChild(dataForecastToday3);
+        const weather3 = document.createElement("div");
+        weather3.className = "flex flex-col gap-2 items-center flex-wrap w-full max-w-2xl";
+        dataForecastToday3.appendChild(weather3);
         const imgToday3 = document.createElement("img");
         const iconSrc3 = weatherIconMap[todayForecast[2].weather.main] ?? "No";
         imgToday3.src = `src/${iconSrc3}`;
         imgToday3.className = "w-20 h-20 drop-shadow-2xl"
         const temp3 = document.createElement("p");
+        temp3.className = "text-lg sm:text-xl";
         temp3.textContent = `${todayForecast[2].temp.temp}°C / ${todayForecast[2].temp.minTemp}°C`;
         const today3 = document.createElement("p");
-        today3.className = "text-3xl";
+        today3.className = "text-2xl sm:text-4xl";
         today3.textContent = todayForecast[2].weather.main;
         const desc3 = document.createElement("p");
         desc3.className = "text-sm";
         const descContent3 = descWeather[todayForecast[2].weather.main] ?? "No";
         desc3.textContent = descContent3;
         const time3 = document.createElement("p");
+        time3.className = "text-lg"
         time3.textContent = `${todayForecast[2].dt}`
         const cityHours3 = document.createElement("p")
         cityHours3.id = "city-hours-3";
@@ -239,11 +251,15 @@ function renderForecastWeather(todayForecast,dailyForecast) {
     }
 
     if (todayForecast[3]) {
+        const hours4 = document.createElement("div");
+        hours4.className = "p-6 mb-6 bg-linear-to-b min-w-xl max-w-3xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl";
+        hoursWeather.appendChild(hours4);
         const dataForecastToday4 = document.createElement("div");
-        hoursWeather.appendChild(dataForecastToday4);
+        dataForecastToday4.className = "w-full max-w-2xl"
+        hours4.appendChild(dataForecastToday4);
         const newDiv = document.createElement("div");
         newDiv.id = "weather-4";
-        newDiv.className = "flex flex-col gap-2 items-center flex-wrap p-6 mb-6 bg-linear-to-b min-w-xl max-w-3xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl";
+        newDiv.className = "flex flex-col gap-2 items-center flex-wrap w-full max-w-2xl";
         const today4 = document.createElement("p");
         const temp4 = document.createElement("p")
         const imgToday4 = document.createElement("img");
@@ -252,9 +268,10 @@ function renderForecastWeather(todayForecast,dailyForecast) {
         const iconSrc4 = weatherIconMap[todayForecast[3].weather.main] ?? "No";
         imgToday4.src = `src/${iconSrc4}`;
         imgToday4.className = "w-20 h-20 drop-shadow-2xl"
+        temp4.className = "text-lg sm:text-xl"
         temp4.textContent = `${todayForecast[3].temp.temp}°C / ${todayForecast[3].temp.minTemp}°C`;
         today4.textContent = todayForecast[3].weather.main;
-        today4.className = "text-3xl"
+        today4.className = "text-2xl sm:text-4xl"
         const descContent4 = descWeather[todayForecast[3].weather.main] ?? "No";
         desc4.textContent = descContent4;
         desc4.className = "text-sm"
@@ -271,6 +288,26 @@ function renderForecastWeather(todayForecast,dailyForecast) {
         newDiv.appendChild(time4);
         newDiv.appendChild(cityHours4);
     }
+
+    if (!todayForecast[0] && !todayForecast[1] && todayForecast[2] && todayForecast[3]) {
+        const resetSection = document.createElement("div");
+        resetSection.id = "reset-section";
+        resetSection.className = "p-6 mb-6 bg-linear-to-b border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold";
+        hoursWeather.appendChild(resetSection);
+        const resetData = document.createElement("div");
+        resetData.id = "reset-data";
+        resetData.className = "w-full max-w-2xl";
+        resetSection.appendChild(resetData)
+        const plainContent = document.createElement("div");
+        plainContent.id = "plain-content";
+        plainContent.className = "flex flex-col gap-2 items-center w-full max-w-2xl flex-wrap animate-spin";
+        resetData.appendChild(plainContent);
+        const resetMessage = document.createElement("p");
+        resetMessage.id = "reset-message";
+        resetMessage.className = "text-lg sm:text-xl";
+        resetMessage.textContent = "Data is being reset. Please wait a moment."
+        plainContent.appendChild(resetMessage);
+    };
 
     const iconDaily1 = weatherIconMap[dailyForecast[0].weather.main] ?? "No";
     const iconDaily2 = weatherIconMap[dailyForecast[1].weather.main] ?? "No";
