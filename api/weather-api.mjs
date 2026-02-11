@@ -54,8 +54,3 @@ export function parserData(result) {
     }
 }
 
-// const parsed = parserData(test);
-// console.log(parsed);
-
-// buat error handling jika ada result yang undefined
-
