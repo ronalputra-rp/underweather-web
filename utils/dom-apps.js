@@ -10,6 +10,7 @@ const params = new URLSearchParams(window.location.search);
 // mengambil key dari params dan mendapatkan hasil yang berupa string
 const city = params.get("city");
 
+const wrapperCards = document.getElementById("wrapper-cards");
 const imgOn = document.getElementById("img-on-fly")
 const tempOn = document.getElementById("temp-on");
 const weatherOn = document.getElementById("weather-on");
@@ -94,6 +95,8 @@ const weatherIconMap = {
     Clouds:"cloudy.webp",
     Rain:"heavy-rain.webp",
     Snow:"snow.webp",
+    Haze:"haze.webp",
+    Mist:"mist.webp"
 }
 
 const descWeather = {
@@ -113,8 +116,30 @@ async function initWeatherApp() {
     if (!parsed.ok) {
         const error = parsed.message
     }
-    if (!forecast.ok) {
-        const error = forecastmessage;
+    // if (!forecast.ok) {
+    //     const error = forecastmessage;
+    // }
+    if (forecast.ok === false) {
+        const errorContainer = document.createElement("div");
+        errorContainer.id = "error-container";
+        errorContainer.className = "mx-auto w-fit sm:w-lg p-4 bg-linear-to-b border-2 border-blue-500 animate-fade-y-3 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold";
+        wrapperCards.appendChild(errorContainer);
+        const errorHandler = document.createElement("div");
+        errorHandler.id = "error-handler";
+        errorHandler.className = "w-full max-w-2xl";
+        errorContainer.appendChild(errorHandler);
+        const errorSection = document.createElement("div");
+        errorSection.id = "error-section";
+        errorSection.className = "w-full max-w-2xl";
+        errorHandler.appendChild(errorSection);
+        const errorMessage = document.createElement("p");
+        errorMessage.id = "error-message";
+        errorMessage.className = "text-lg sm:text-xl";
+        errorMessage.textContent = "The city name you entered is invalid. Please re-enter the city name."
+        errorSection.appendChild(errorMessage);
+        weatherOnClock.remove();
+        wrapperOnHours.remove();
+        dailyWeather.remove();
     }
     renderWeather(parsed);
     renderForecastWeather(todayForecast,dailyForecast)
