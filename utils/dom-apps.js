@@ -37,6 +37,7 @@ const desc1 = document.getElementById("desc-1");
 const time1 = document.getElementById("date-time-1");
 
 // daily manipulation
+const dailyContainer = document.getElementById("daily-container");
 const imgDaily1 = document.getElementById("img-daily-1");
 const imgDaily2 = document.getElementById("img-daily-2");
 const imgDaily3 = document.getElementById("img-daily-3");
@@ -171,7 +172,7 @@ function renderForecastWeather(todayForecast,dailyForecast) {
     if (todayForecast[1]) {
         const cityHours = todayForecast[0].city;
         const hours2 = document.createElement("div");
-        hours2.className = "p-6 mb-6 bg-linear-to-b min-w-xl max-w-3xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl";
+        hours2.className = "p-6 mb-6 bg-linear-to-b border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl";
         hoursWeather.appendChild(hours2);
         const dataForecastToday2 = document.createElement("div");
         dataForecastToday2.className = "w-full max-w-2xl";
@@ -202,7 +203,7 @@ function renderForecastWeather(todayForecast,dailyForecast) {
         time2.textContent = `${todayForecast[1].dt}`;
         const cityHours2 = document.createElement("p")
         cityHours2.id = "city-hours-2";
-        cityHours2.className = "text-lg font-bold";
+        cityHours2.className = "text-sm font-bold";
         cityHours2.textContent = `- ${cityHours} -`
         weather2.appendChild(imgToday2);
         weather2.appendChild(temp2);
@@ -215,7 +216,7 @@ function renderForecastWeather(todayForecast,dailyForecast) {
     if (todayForecast[2]) {
         const cityHours = todayForecast[0].city;
         const hours3 = document.createElement("div");
-        hours3.className = "p-6 mb-6 bg-linear-to-b min-w-xl max-w-3xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl";
+        hours3.className = "p-6 mb-6 bg-linear-to-b border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl";
         hoursWeather.appendChild(hours3);
         const dataForecastToday3 = document.createElement("div");
         dataForecastToday3.id = "data-forecast-today-3";
@@ -243,7 +244,7 @@ function renderForecastWeather(todayForecast,dailyForecast) {
         time3.textContent = `${todayForecast[2].dt}`
         const cityHours3 = document.createElement("p")
         cityHours3.id = "city-hours-3";
-        cityHours3.className = "text-lg font-bold";
+        cityHours3.className = "text-sm font-bold";
         cityHours3.textContent = `- ${cityHours} -`
         dataForecastToday3.appendChild(imgToday3)
         dataForecastToday3.appendChild(temp3);
@@ -256,7 +257,7 @@ function renderForecastWeather(todayForecast,dailyForecast) {
     if (todayForecast[3]) {
         const cityHours = todayForecast[0].city;
         const hours4 = document.createElement("div");
-        hours4.className = "p-6 mb-6 bg-linear-to-b min-w-xl max-w-3xl border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl";
+        hours4.className = "p-6 mb-6 bg-linear-to-b border-2 border-blue-500 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold text-xl";
         hoursWeather.appendChild(hours4);
         const dataForecastToday4 = document.createElement("div");
         dataForecastToday4.className = "w-full max-w-2xl"
@@ -282,7 +283,7 @@ function renderForecastWeather(todayForecast,dailyForecast) {
         time4.textContent = `${todayForecast[3].dt}`
         const cityHours4 = document.createElement("p")
         cityHours4.id = "city-hours-4";
-        cityHours4.className = "text-lg font-bold";
+        cityHours4.className = "text-sm font-bold";
         cityHours4.textContent = `- ${cityHours} -`
         dataForecastToday4.appendChild(newDiv);
         newDiv.appendChild(imgToday4);
@@ -355,6 +356,27 @@ function renderForecastWeather(todayForecast,dailyForecast) {
     cityDaily3.textContent = `- ${cityDaily} -`;
     cityDaily4.textContent = `- ${cityDaily} -`;
     cityDaily5.textContent = `- ${cityDaily} -`;
+
+    if (!dailyForecast[0] && !dailyForecast[1] && !dailyForecast[2] && !dailyForecast[3] && !dailyForecast[4]) {
+        const resetDailySection = document.createElement("div");
+        resetDailySection.id = "reset-daily-section";
+        resetDailySection.className = "mx-auto w-fit sm:w-lg p-4 bg-linear-to-b border-2 border-blue-500 animate-fade-y-3 rounded-2xl text-center shadow-md shadow-gray-500 font-[Quicksand] font-semibold";
+        dailyWeather.appendChild(resetDailySection);
+        const resetDailyData = document.createElement("div");
+        resetDailyData.id = "reset-data";
+        resetDailyData.className = "w-full max-w-2xl";
+        resetDailySection.appendChild(resetDailyData)
+        const plainDailyContent = document.createElement("div");
+        plainDailyContent.id = "plain-daily-content";
+        plainDailyContent.className = "w-full max-w-2xl";
+        resetDailyData.appendChild(plainDailyContent);
+        const resetMessage = document.createElement("p");
+        resetMessage.id = "reset-message";
+        resetMessage.className = "text-lg sm:text-xl";
+        resetMessage.textContent = "Data is being reset. Please wait a moment."
+        plainDailyContent.appendChild(resetMessage);
+        dailyContainer.remove();
+    };
 }
 
 const dailyLink = document.getElementById("daily-link");
