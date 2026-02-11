@@ -7,10 +7,6 @@ const header = document.getElementById("header");
 const searchIcon = document.getElementById("search-icon");
 const dropdownButton = document.getElementById("city-dropdown");
 const dropdownContainer = document.getElementById("dropdown-container");
-// const nameWeb = document.getElementById("name-web");
-
-console.log(dropdownContent);
-
 
 const listOfCity = ["Ambarawa","Salatiga","Ungaran","Jakarta","Semarang","Solo"];
 for (let i = 0; i < listOfCity.length; i++) {
@@ -32,8 +28,9 @@ form.addEventListener("submit",(e) => {
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
     }
-    if (!city) {
-        return;
+    const cityRegex = /^[a-zA-Z\s.'-]{2,}$/;
+    if (!cityRegex.test(city)) {
+        alert("Nama kota tidak valid. Hanya huruf, spasi, titik, hubung, apostrof, minimal 2 karakter.");
     }
     window.location.href = `app.html?city=${encodeURIComponent(capitalizeWords(city))}`;
 });
@@ -79,5 +76,3 @@ window.addEventListener("DOMContentLoaded", () => {
     header.classList.remove("invisible");
     searchIcon.classList.remove("invisible");
 })
-// console.log(form);
-// console.log(cityInput);
