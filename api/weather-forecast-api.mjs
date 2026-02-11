@@ -84,6 +84,7 @@ import { apiKey } from "./config.mjs";
         }
 
         export function parseTodayForecast(result) {
+            if (result.ok === true) {
                 return result.todayForecast.map(item => {
                     return {
                             city:result.city.name,
@@ -107,11 +108,13 @@ import { apiKey } from "./config.mjs";
                             dt:new Date(item.dt * 1000).toLocaleDateString(`id-ID`,options)
                     }
                 })
+            }
         }
 
 
         export function parseDailyForecast(result) {
-            return result.dailyForecast.map (item => {
+            if (result.ok === true) {
+                return result.dailyForecast.map (item => {
                 return {
                         city:result.city.name,
                         weather:{
@@ -134,4 +137,6 @@ import { apiKey } from "./config.mjs";
                         dt:new Date(item.dt * 1000).toLocaleDateString('id-ID',options2)
                 }
             }) 
+            }
+
         }
